@@ -8,7 +8,7 @@ public class LibraryTracker {
     static final Path BOOKS_FILE = Path.of("books.json");
 
     public static void main(String[] args) {
-        System.out.println("Welcome to Library Tracker!");
+        printBanner();
         loadBooks();
         listBooks();
     }
@@ -99,4 +99,7 @@ public class LibraryTracker {
         System.out.println("Error loading books: " + e.getMessage());
     }
   }
+  public static void printBanner() {
+    System.out.println("=== Welcome to Library Tracker - Student A ===");
+}
 }
