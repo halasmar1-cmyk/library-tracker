@@ -15,7 +15,7 @@ public class LibraryTracker {
 
     public static void addBook(String title) {
         if (title == null || title.trim().isEmpty()) {
-            System.out.println("Error: Book title cannot be empty.");
+            printBanner();
             return;
         }
 
@@ -99,4 +99,9 @@ public class LibraryTracker {
         System.out.println("Error loading books: " + e.getMessage());
     }
   }
+  
+  public static void printBanner() {
+    System.out.println("=== Welcome to Library Tracker - Student B ===");
+}
+
 }
