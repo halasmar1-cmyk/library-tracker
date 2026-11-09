@@ -8,9 +8,12 @@ public class LibraryTracker {
     static final Path BOOKS_FILE = Path.of("books.json");
 
     public static void main(String[] args) {
+
+      
         printBanner();
         loadBooks();
         listBooks();
+
     }
 
     public static void addBook(String title) {
@@ -99,6 +102,28 @@ public class LibraryTracker {
         System.out.println("Error loading books: " + e.getMessage());
     }
   }
+
+  public static void searchBooks(String keyword) {
+    if (keyword == null || keyword.trim().isEmpty()) {
+        System.out.println("Error: Search keyword cannot be empty.");
+        return;
+    }
+
+    String query = keyword.trim().toLowerCase(java.util.Locale.ROOT);
+    boolean found = false;
+
+    for (String book : books) {
+        if (book.toLowerCase(java.util.Locale.ROOT).contains(query)) {
+            System.out.println("- " + book);
+            found = true;
+        }
+    }
+
+    if (!found) {
+        System.out.println("No matching books found.");
+    }
+}
+
   public static void printBanner() {
     System.out.println("=== Welcome to Library Tracker - Student A ===");
 }
