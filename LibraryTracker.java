@@ -124,6 +124,26 @@ public class LibraryTracker {
     }
 }
 
+public static void removeBook(String title) {
+    if (title == null || title.trim().isEmpty()) {
+        System.out.println("Error: Book title cannot be empty.");
+        return;
+    }
+
+    String target = title.trim();
+
+    for (int i = 0; i < books.size(); i++) {
+        if (books.get(i).equalsIgnoreCase(target)) {
+            String removedBook = books.remove(i);
+            saveBooks();
+            System.out.println("Book removed: " + removedBook);
+            return;
+        }
+    }
+
+    System.out.println("Book not found: " + target);
+}
+
   public static void printBanner() {
     System.out.println("=== Welcome to Library Tracker - Student A ===");
 }
